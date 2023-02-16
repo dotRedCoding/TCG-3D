@@ -56,9 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				7F4CB145299E7A7F00F15F9C /* AppDelegate.swift */,
-				7F4CB147299E7A7F00F15F9C /* art.scnassets */,
 				7F4CB149299E7A7F00F15F9C /* ViewController.swift */,
 				7F4CB14B299E7A7F00F15F9C /* Main.storyboard */,
+				7F4CB147299E7A7F00F15F9C /* art.scnassets */,
 				7F4CB14E299E7A8000F15F9C /* Assets.xcassets */,
 				7F4CB150299E7A8000F15F9C /* LaunchScreen.storyboard */,
 			);
@@ -287,6 +287,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XSSY6A53BC;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -317,6 +318,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XSSY6A53BC;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
