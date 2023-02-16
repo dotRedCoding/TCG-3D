@@ -16,6 +16,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.autoenablesDefaultLighting = true
+        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -65,6 +67,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             planeNode.eulerAngles.x =  -.pi / 2
             
             node.addChildNode(planeNode)
+            
+            if let pokeScene = SCNScene(named: "art.scnassets/Pikachu.scn") {
+                if let pokeNode = pokeScene.rootNode.childNode(withName: "PikachuM", recursively: true) {
+                    pokeNode.scale = SCNVector3Make(0.002, 0.002, 0.002)
+                    pokeNode.eulerAngles.x = +.pi / 2
+                    planeNode.addChildNode(pokeNode)
+                }
+            }
+            
         }
             
         
