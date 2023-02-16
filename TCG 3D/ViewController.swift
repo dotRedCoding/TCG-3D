@@ -33,7 +33,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "PokemonCards", bundle: Bundle.main) {
             configuration.trackingImages = imageToTrack
-            configuration.maximumNumberOfTrackedImages = 1
+            configuration.maximumNumberOfTrackedImages = 2
             print("Images Sucessfully Added")
             
         }
@@ -56,42 +56,43 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let node = SCNNode()
         
         if let imageAnchor = anchor as? ARImageAnchor {
+            
             let plane = SCNPlane(
                 width: imageAnchor.referenceImage.physicalSize.width,
                 height: imageAnchor.referenceImage.physicalSize.height
             )
             
-            plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.5)
+            plane.firstMaterial?.diffuse.contents = UIColor.clear
             
             let planeNode = SCNNode(geometry: plane)
             planeNode.eulerAngles.x =  -.pi / 2
             
             node.addChildNode(planeNode)
             
-            if let pokeScene = SCNScene(named: "art.scnassets/Pikachu.scn") {
-                if let pokeNode = pokeScene.rootNode.childNode(withName: "PikachuM", recursively: true) {
-                    pokeNode.scale = SCNVector3Make(0.002, 0.002, 0.002)
-                    pokeNode.eulerAngles.x = +.pi / 2
-                    planeNode.addChildNode(pokeNode)
+            if imageAnchor.referenceImage.name == "pikachu-card" {
+                
+                if let pokeScene = SCNScene(named: "art.scnassets/Pikachu.scn") {
+                    if let pokeNode = pokeScene.rootNode.childNode(withName: "PikachuM", recursively: true) {
+                        pokeNode.scale = SCNVector3Make(0.002, 0.002, 0.002)
+                        pokeNode.eulerAngles.x = +.pi / 2
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if imageAnchor.referenceImage.name == "clefairy-card" {
+                if let pokeScene = SCNScene(named: "art.scnassets/clefairy.scn") {
+                    if let pokeNode = pokeScene.rootNode.childNode(withName: "clefairy", recursively: true) {
+                        pokeNode.scale = SCNVector3Make(0.0015, 0.0015, 0.0015)
+                        pokeNode.eulerAngles.x = +.pi / 2
+                        planeNode.addChildNode(pokeNode)
+                    }
                 }
             }
             
         }
-            
-        
-        
-        
-        
-        
-        
-        
         return node
-        
-        
     }
-    
-    
-    
     
     
 }
